@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EmberCafe — Завтраки</title>
+  <meta name="description" content="Завтраки в EmberCafe — яйца, сеты, каши и выпечка.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;1,300&family=Overpass:ital,wght@0,100..900;1,100..900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="photos/background.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="intro-active">
+  <!-- Intro / Splash -->
+  <div id="intro" class="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <span class="intro-word" aria-label="EmberCafe">EmberCafe</span>
+    </div>
+  </div>
+
+  <div id="page-root">
+    <!-- Header -->
+    <header class="header">
+      <div class="container nav">
+        <!-- Текстовое лого в фирменном цвете -->
+        <a class="logo" href="#top" aria-label="Ember Café — на главную">
+          <span class="logo-text">
+            <span class="logo-ember">ember</span>
+            <span class="logo-cafe">café</span>
+          </span>
+        </a>
+
+        <nav class="links" id="main-nav" aria-label="Основная навигация">
+          <a class="navlink is-active" href="breakfasts.html" aria-current="page">Завтраки</a>
+          <a class="navlink" href="mainfood.html">Еда</a>
+          <a class="navlink" href="drinks.html">Напитки</a>
+          <a class="navlink" href="wine.html">Вино</a>
+        </nav>
+
+        <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-controls="main-nav" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-media" role="img" aria-label="Ассорти блюд для завтрака">
+        <div class="hero-overlay"></div>
+        <div class="hero-title">
+          <h1>
+            Завтраки в
+            <span class="hero-ember">Ember</span><span class="hero-cafe">café</span>
+          </h1>
+          <p>Свежие яйца, тёплая выпечка, сырники и каши с сезонными добавками. Средиземноморские и итальянские сеты — лёгкий и вкусный старт дня.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu -->
+    <section class="menu-section">
+      <div class="container">
+        <div class="menu-header">
+          <h2 class="menu-title" aria-label="Меню завтраков">
+            <span class="menu-title__accent">Меню</span> завтраков
+          </h2>
+
+          <div class="menu-tabs" role="tablist" aria-label="Категории меню">
+            <button class="tab active" id="tab-eggs" role="tab" type="button" aria-controls="panel-eggs" aria-selected="true">Яйца</button>
+            <button class="tab" id="tab-sets" role="tab" type="button" aria-controls="panel-sets" aria-selected="false">Сеты</button>
+            <button class="tab" id="tab-porridge" role="tab" type="button" aria-controls="panel-porridge" aria-selected="false">Каши и сырники</button>
+            <button class="tab" id="tab-bakery" role="tab" type="button" aria-controls="panel-bakery" aria-selected="false">С нашей выпечкой</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider" id="menu-slider" aria-roledescription="carousel" aria-label="Слайдер блюд">
+        <button class="ghost-arrow left" id="prevDish" type="button" aria-label="Предыдущее блюдо">‹</button>
+        <button class="ghost-arrow right" id="nextDish" type="button" aria-label="Следующее блюдо">›</button>
+
+        <div class="slides-wrapper" id="slides-wrapper"><!-- слайды вставляет JS --></div>
+        <div class="dots" id="dish-dots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Info -->
+    <section class="section">
+      <div class="container info">
+        <div class="note"><strong>Время подачи</strong><br>Будни — 9:00–11:45<br>Выходные — 9:00–13:45</div>
+        <div class="note"><strong>Добавки</strong><br>Авокадо, тунец, сыр, томаты черри, салат. Лосось слабосолёный +340 ₽.</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div id="overlay" class="overlay" hidden></div>
+  <div id="dish-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" hidden>
+    <button class="modal-close" id="modal-close" type="button" aria-label="Закрыть">×</button>
+    <div class="modal-media"><img id="modal-img" alt="Фото блюда" /></div>
+    <div class="modal-body">
+      <h3 id="modal-title"></h3>
+      <div class="modal-price" id="modal-price"></div>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="script.js"></script>
+</body>
+</html>
