@@ -11,7 +11,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;1,300&family=Overpass:ital,wght@0,100..900;1,100..900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
 
-  <link rel="preload" as="image" href="photos/background.jpg" fetchpriority="high">
+  <!-- Preload hero images -->
+  <link rel="preload" as="image" href="photos/colum1.jpg">
+  <link rel="preload" as="image" href="photos/colum2.jpg">
+  <link rel="preload" as="image" href="photos/colum3.jpg">
+  <link rel="preload" as="image" href="photos/colum4.jpg">
+  <link rel="preload" as="image" href="photos/colum5.jpg">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="intro-active">
@@ -19,75 +25,124 @@
   <div id="intro" class="intro" aria-hidden="true">
     <div class="intro-inner">
       <span class="intro-word" aria-label="EmberCafe">EmberCafe</span>
+      <span class="intro-sub">завтраки &nbsp;•&nbsp; кофе &nbsp;•&nbsp; настроение</span>
     </div>
   </div>
 
+  <!-- ДАННЫЕ СТРАНИЦЫ -->
+  <script>
+    const DISH_IMG = 'photos/test.jpg';
+    window.MENU_DEFAULT = 'eggs';
+    window.MENU_DATA = {
+      eggs:[
+        {title:'Яйца (яичница / омлет / скрэмбл)', price:'250 ₽', img:DISH_IMG,
+         desc:'Фермерские яйца — глазунья, омлет или скрэмбл. Готовим на сливочном масле, крупная соль, перец. Дополнительно: авокадо, тунец, сыр, томаты черри, салат; лосось +340 ₽.'},
+        {title:'Омлет с сыром, гуакамоле и тостом с мортделлой и фисташкой', price:'490 ₽', img:DISH_IMG,
+         desc:'Пышный омлет с тянущимся сыром, гуакамоле с лаймом и тостом с мортделлой. Фисташка для хруста и орехового аромата.'},
+        {title:'Шакшука с фасолью и страчателлой', price:'640 ₽', img:DISH_IMG,
+         desc:'Пряные томаты, чеснок, зира и паприка. Яйца с текучим желтком, белая фасоль и холодная страчателла. Подаём с тёплым хлебом.'}
+      ],
+      sets:[
+        {title:'Средиземноморский сет', price:'590 ₽', img:DISH_IMG,
+         desc:'Хумус, зелёный салат, страчателла, яйцо всмятку и мортделла. Лёгкий, солнечный завтрак.'},
+        {title:'Итальянский завтрак', price:'590 ₽', img:DISH_IMG,
+         desc:'Глазунья, запечённый картофель, томаты, зелень и белок на выбор — лосось или бекон.'},
+        {title:'Кабачковый оладий с яйцом пашот', price:'450 ₽', img:DISH_IMG,
+         desc:'Нежные оладьи из кабачков с травами, сверху яйцо пашот и сметана. Лосось +340 ₽.'}
+      ],
+      porridge:[
+        {title:'Гречка с копчёной килькой и яйцом пашот', price:'490 ₽', img:DISH_IMG,
+         desc:'Рассыпчатая гречка, дымок кильки и текучий желток пашота. Чуть масла и зелёного лука.'},
+        {title:'Овсяная каша на молоке', price:'230 ₽', img:DISH_IMG,
+         desc:'Кремовая овсянка с ванилью и щепоткой соли. Ягоды или варенье +180 ₽.'},
+        {title:'Овсяная каша на кокосовом молоке с бананом и солёной карамелью', price:'320 ₽', img:DISH_IMG,
+         desc:'Кокосовая основа, тёплый банан и лента солёной карамели — десертное настроение без тяжести.'},
+        {title:'Рисовая каша на кокосовом молоке с манго и апельсином', price:'360 ₽', img:DISH_IMG,
+         desc:'Мягкая рисовая каша с манго, апельсином и цедрой — ярко и свежо.'},
+        {title:'Сырники с цитрусовой сметаной и клубничным пюре', price:'480 ₽', img:DISH_IMG,
+         desc:'Пышные сырники, сметана с цедрой и густое клубничное пюре.'},
+        {title:'Сырники с бананом и ягодным кремом', price:'480 ₽', img:DISH_IMG,
+         desc:'Сырники с карамелизированным бананом и лёгким ягодным кремом.'}
+      ],
+      bakery:[
+        {title:'Авокадо-тост', price:'480 ₽', img:DISH_IMG,
+         desc:'Спелый авокадо, лимон, морская соль и хлопья чили. Лосось +340 ₽.'},
+        {title:'Яйцо бенедикт: бекон / лосось', price:'540 / 790 ₽', img:DISH_IMG,
+         desc:'Классика: булочка, бекон или лосось, яйцо пашот и голландез.'},
+        {title:'Скрэмбл-тост с картофелем и куриной отбивной', price:'590 ₽', img:DISH_IMG,
+         desc:'Сливочный скрэмбл, румяная куриная отбивная и запечённый картофель.'},
+        {title:'Крок-мадам с беконом', price:'590 ₽', img:DISH_IMG,
+         desc:'Французская классика с бешамелем и яйцом сверху.'},
+        {title:'Сэндвич с цыплёнком и цезарем', price:'590 ₽', img:DISH_IMG,
+         desc:'Курица, романо, пармезан и соус цезарь на поджаренном хлебе.'},
+        {title:'Круассан с лососем, огурцом и яйцом пашот', price:'690 ₽', img:DISH_IMG,
+         desc:'Тёплый круассан, лосось, огурец и яйцо пашот.'},
+        {title:'Круассан с креветкой и яйцом пашот', price:'690 ₽', img:DISH_IMG,
+         desc:'Креветки с чесноком и лимоном, яйцо пашот.'},
+        {title:'Круассан с красной икрой', price:'890 ₽', img:DISH_IMG,
+         desc:'Кремовое масло и щедрая красная икра.'}
+      ]
+    };
+  </script>
+
   <div id="page-root">
-    <!-- Header -->
     <header class="header">
       <div class="container nav">
-        <!-- Текстовое лого в фирменном цвете -->
         <a class="logo" href="#top" aria-label="Ember Café — на главную">
-          <span class="logo-text">
-            <span class="logo-ember">ember</span>
-            <span class="logo-cafe">café</span>
-          </span>
+          <span class="logo-text"><span class="logo-ember">ember</span><span class="logo-cafe">café</span></span>
         </a>
-
         <nav class="links" id="main-nav" aria-label="Основная навигация">
-          <a class="navlink is-active" href="breakfasts.html" aria-current="page">Завтраки</a>
+          <a class="navlink is-active" href="index.html" aria-current="page">Завтраки</a>
           <a class="navlink" href="mainfood.html">Еда</a>
           <a class="navlink" href="drinks.html">Напитки</a>
           <a class="navlink" href="wine.html">Вино</a>
         </nav>
-
         <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-controls="main-nav" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </header>
 
-    <!-- Hero -->
+    <!-- HERO: 5 вертикальных столбиков -->
     <section class="hero" id="top">
-      <div class="hero-media" role="img" aria-label="Ассорти блюд для завтрака">
-        <div class="hero-overlay"></div>
-        <div class="hero-title">
-          <h1>
-            Завтраки в
-            <span class="hero-ember">Ember</span><span class="hero-cafe">café</span>
-          </h1>
-          <p>Свежие яйца, тёплая выпечка, сырники и каши с сезонными добавками. Средиземноморские и итальянские сеты — лёгкий и вкусный старт дня.</p>
+      <div class="hero-shell" id="hero-shell">
+        <div class="hero-stack" id="hero-stack" role="button" aria-label="Раскрыть галерею" aria-expanded="false" tabindex="0">
+          <div class="hero-col"><img src="photos/colum1.jpg" alt="EmberCafe — фото 1" loading="eager"></div>
+          <div class="hero-col"><img src="photos/colum2.jpg" alt="EmberCafe — фото 2" loading="lazy"></div>
+          <div class="hero-col"><img src="photos/colum3.jpg" alt="EmberCafe — фото 3" loading="lazy"></div>
+          <div class="hero-col"><img src="photos/colum4.jpg" alt="EmberCafe — фото 4" loading="lazy"></div>
+          <div class="hero-col"><img src="photos/colum5.jpg" alt="EmberCafe — фото 5" loading="lazy"></div>
+        </div>
+
+        <div class="hero-caption">
+          <h1><span class="brand">EmberCafe</span> <span class="caption-what">Завтраки</span></h1>
+          <p>Свежие яйца, тёплая выпечка, сырники и каши с сезонными добавками. Лёгкий и вкусный старт дня.</p>
         </div>
       </div>
     </section>
 
-    <!-- Menu -->
+    <!-- Tabs + Slider -->
     <section class="menu-section">
       <div class="container">
         <div class="menu-header">
-          <h2 class="menu-title" aria-label="Меню завтраков">
-            <span class="menu-title__accent">Меню</span> завтраков
-          </h2>
-
+          <h2 class="menu-title">Завтраки</h2>
           <div class="menu-tabs" role="tablist" aria-label="Категории меню">
-            <button class="tab active" id="tab-eggs" role="tab" type="button" aria-controls="panel-eggs" aria-selected="true">Яйца</button>
-            <button class="tab" id="tab-sets" role="tab" type="button" aria-controls="panel-sets" aria-selected="false">Сеты</button>
-            <button class="tab" id="tab-porridge" role="tab" type="button" aria-controls="panel-porridge" aria-selected="false">Каши и сырники</button>
-            <button class="tab" id="tab-bakery" role="tab" type="button" aria-controls="panel-bakery" aria-selected="false">С нашей выпечкой</button>
+            <button class="tab active" id="tab-eggs"     type="button" aria-selected="true">Яйца</button>
+            <button class="tab"         id="tab-sets"     type="button" aria-selected="false">Сеты</button>
+            <button class="tab"         id="tab-porridge" type="button" aria-selected="false">Каши и сырники</button>
+            <button class="tab"         id="tab-bakery"   type="button" aria-selected="false">С нашей выпечкой</button>
           </div>
         </div>
       </div>
 
-      <div class="slider" id="menu-slider" aria-roledescription="carousel" aria-label="Слайдер блюд">
+      <div class="slider" id="menu-slider" aria-roledescription="carousel" aria-label="Слайдер блюд — Завтраки">
         <button class="ghost-arrow left" id="prevDish" type="button" aria-label="Предыдущее блюдо">‹</button>
         <button class="ghost-arrow right" id="nextDish" type="button" aria-label="Следующее блюдо">›</button>
-
-        <div class="slides-wrapper" id="slides-wrapper"><!-- слайды вставляет JS --></div>
+        <div class="slides-wrapper" id="slides-wrapper"></div>
         <div class="dots" id="dish-dots" aria-hidden="true"></div>
       </div>
     </section>
 
-    <!-- Info -->
     <section class="section">
       <div class="container info">
         <div class="note"><strong>Время подачи</strong><br>Будни — 9:00–11:45<br>Выходные — 9:00–13:45</div>
@@ -108,8 +163,6 @@
     </div>
   </div>
 
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script defer src="script.js"></script>
 </body>
 </html>

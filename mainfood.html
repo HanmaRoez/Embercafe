@@ -5,192 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>EmberCafe — Основное меню</title>
   <meta name="description" content="Основное меню EmberCafe — закуски, салаты, паста, горячее и десерты.">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;1,300&family=Overpass:ital,wght@0,100..900;1,100..900&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="photos/background.jpg" fetchpriority="high">
+
+  <link rel="preload" as="image" href="photos/colum1.jpg">
+  <link rel="preload" as="image" href="photos/colum2.jpg">
+  <link rel="preload" as="image" href="photos/colum3.jpg">
+  <link rel="preload" as="image" href="photos/colum4.jpg">
+  <link rel="preload" as="image" href="photos/colum5.jpg">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="intro-active">
-  <!-- Intro / Splash -->
   <div id="intro" class="intro" aria-hidden="true">
     <div class="intro-inner">
-      <span class="intro-word" aria-label="EmberCafe">EmberCafe</span>
+      <span class="intro-word">EmberCafe</span>
+      <span class="intro-sub">кухня &nbsp;•&nbsp; вино &nbsp;•&nbsp; друзья</span>
     </div>
   </div>
 
-  <!-- ДАННЫЕ ЭТОЙ СТРАНИЦЫ (подхватываются script.js) -->
   <script>
     const DISH_IMG = 'photos/test.jpg';
-
-    window.MENU_DEFAULT = 'table'; // категория по умолчанию
+    window.MENU_DEFAULT = 'table';
     window.MENU_DATA = {
-      table: [ // ЗАКУСКИ В СТОЛ
-        { title:'Хлеб с маслом и тараллини', price:'320 ₽', img:DISH_IMG,
-          desc:'Тёплая дешевая бриошь и хрустящие итальянские тараллини подаём с хорошим сливочным маслом и морской солью. Идеальная стартовая тарелка для компании: просто, ароматно и тактильно приятно — чтобы «раскачать» аппетит и подготовить сцену для следующих блюд.' },
-        { title:'Маринованные оливки', price:'450 ₽', img:DISH_IMG,
-          desc:'Микс зелёных и чёрных оливок, настоянных с цитрусовой цедрой, чесноком и тимьяном. Нежная маслянистость и пряный аромат — лёгкая закуска, которая отлично сочетается с игристым и белым вином.' },
-        { title:'Сыры к белому', price:'890 ₽', img:DISH_IMG,
-          desc:'Подборка сыров из местной сыроварни Fromagelle: сливочные, деликатные и ароматные сорта, которые раскрываются в паре с белыми винами. Подаём с мёдом, орехами и хрустящими хлебцами.' },
-        { title:'Сыры к красному', price:'890 ₽', img:DISH_IMG,
-          desc:'Более насыщанные и выдержанные сыры Fromagelle с ореховыми и карамельными нотами. Идеальны для красных вин; дополняем фруктовым чатни и поджаренной чиабаттой.' },
-        { title:'Тарелка мясных деликатесов', price:'990 ₽', img:DISH_IMG,
-          desc:'Ассорти из пршуто, колбас, ростбифа и копчёностей, подаём с горчицей и маринованными овощами. Сбалансированная солоноватость и пряность — отличный вариант «в стол».' },
+      table:[
+        { title:'Хлеб с маслом и тараллини', price:'320 ₽', img:DISH_IMG, desc:'Тёплый хлеб, сливочное масло и тараллини.' },
+        { title:'Маринованные оливки', price:'450 ₽', img:DISH_IMG, desc:'Микс зелёных и чёрных оливок.' },
+        { title:'Сыры к белому', price:'890 ₽', img:DISH_IMG, desc:'Подборка Fromagelle под белые вина.' },
+        { title:'Сыры к красному', price:'890 ₽', img:DISH_IMG, desc:'Выдержанные сыры Fromagelle.' },
+        { title:'Тарелка мясных деликатесов', price:'990 ₽', img:DISH_IMG, desc:'Ассорти прошутто, колбас и ростбифа.' },
       ],
-
-      starters: [ // ЗАКУСКИ
-        { title:'Картофель фри с пармезаном', price:'490 ₽', img:DISH_IMG,
-          desc:'Толстые ломтики картофеля двойной обжарки — хруст снаружи и мягкость внутри. Сразу после жарки щедро посыпаем свежетертым пармезаном и травами.' },
-        { title:'Аранчини в томатном соусе с сыром пармезан', price:'540 ₽', img:DISH_IMG,
-          desc:'Сицилийские рисовые шарики с расплавленным сыром внутри. Подаём в густом томатном соусе с чесноком и базиликом, сверху — пармезан.' },
-        { title:'Печёные перцы с творогом и анчоусами', price:'540 ₽', img:DISH_IMG,
-          desc:'Сладкие перцы, запечённые до мягкости, наполняем воздушным творогом и солоноватым анчоусным кремом. Контраст текстур и чистые средиземноморские ноты.' },
-        { title:'Паштет из куриной печени с компоте из чёрной смородины', price:'690 ₽', img:DISH_IMG,
-          desc:'Шёлковистый паштет с коньяком и сливочным маслом. Сверху — кисло-сладкое компоте из чёрной смородины, которое освежает и балансирует вкус.' },
-        { title:'Креветки в соусе пил-пил', price:'690 ₽', img:DISH_IMG,
-          desc:'Сочные креветки, быстро обжаренные в оливковом масле с чесноком и перцем чили. Подаём со свежим багетом, чтобы собирать ароматный соус.' },
-        { title:'Вителло тоннато', price:'730 ₽', img:DISH_IMG,
-          desc:'Тонко нарезанная розовая телятина под кремовым соусом из тунца, каперсов и анчоусов. Классика Пьемонта — нежно, пикантно и очень изысканно.' },
-        { title:'Тартар из маринованной говядины с картофелем и пармезаном', price:'730 ₽', img:DISH_IMG,
-          desc:'Мелко рубленая говядина с зернистой горчицей и специями. Подаём с тёплым картофелем и щедрой стружкой пармезана.' },
-        { title:'Тартар с соусом халапеньо', price:'890 ₽', img:DISH_IMG,
-          desc:'Острая версия с зелёным соусом халапеньо, лаймом и кинзой. Яркий, сочный, пряный — для тех, кто любит темперамент на тарелке.' },
-        { title:'Крудо из мурманского лосося', price:'890 ₽', img:DISH_IMG,
-          desc:'Нежные слайсы свежего лосося с цитрусами и травяным маслом. Чистый вкус моря, подчеркнутый солью и каплей оливкового масла.' },
+      starters:[
+        { title:'Картофель фри с пармезаном', price:'490 ₽', img:DISH_IMG, desc:'Хрустящий фри с пармезаном.' },
+        { title:'Аранчини в томатном соусе', price:'540 ₽', img:DISH_IMG, desc:'Сицилийские рисовые шарики с сыром.' },
+        { title:'Печёные перцы с творогом', price:'540 ₽', img:DISH_IMG, desc:'Сладкие перцы, творог и анчоусы.' },
+        { title:'Паштет с компоте', price:'690 ₽', img:DISH_IMG, desc:'Паштет и компоте из чёрной смородины.' },
+        { title:'Креветки пил‑пил', price:'690 ₽', img:DISH_IMG, desc:'Чеснок, чили и оливковое масло.' },
+        { title:'Вителло тоннато', price:'730 ₽', img:DISH_IMG, desc:'Телятина и соус тоннато.' },
+        { title:'Тартар с картофелем', price:'730 ₽', img:DISH_IMG, desc:'Говядина и тёплый картофель.' },
+        { title:'Тартар халапеньо', price:'890 ₽', img:DISH_IMG, desc:'Версия поострее.' },
+        { title:'Крудо из лосося', price:'890 ₽', img:DISH_IMG, desc:'Тонкие слайсы лосося и цитрус.' },
       ],
-
-      bread: [ // НА НАШЕМ ХЛЕБЕ
-        { title:'Тёплые сливки и анчоусы на сливочной бриоши', price:'390 ₽', img:DISH_IMG,
-          desc:'Нежные тёплые сливки, анчоусы и перец на поджаренной бриоши. Сливочность и умами — минимализм, который покоряет.' },
-        { title:'Брускетта с ростбифом и томатным песто', price:'490 ₽', img:DISH_IMG,
-          desc:'Хрустящая чиабатта, тонкие слайсы ростбифа, томатный песто и руккола. Сытно, ярко и очень итальянски.' },
-        { title:'Брускетта с креветкой и кремом из сыра пармезан', price:'540 ₽', img:DISH_IMG,
-          desc:'Сливочный тост с пармезановым кремом и тёплой креветкой. Лёгкий чесночный акцент и капля лимона.' },
-        { title:'Бутерброд с красной икрой на бородинском хлебе', price:'890 ₽', img:DISH_IMG,
-          desc:'Щедрая ложка красной икры на ароматном бородинском хлебе со сливочным маслом. Небольшая роскошь на каждый день.' },
+      bread:[
+        { title:'Тёплые сливки и анчоусы', price:'390 ₽', img:DISH_IMG, desc:'На бриоши.' },
+        { title:'Брускетта с ростбифом', price:'490 ₽', img:DISH_IMG, desc:'Томатный песто и руккола.' },
+        { title:'Брускетта с креветкой', price:'540 ₽', img:DISH_IMG, desc:'Пармезановый крем.' },
+        { title:'Икра на бородинском', price:'890 ₽', img:DISH_IMG, desc:'Сливочное масло и красная икра.' },
       ],
-
-      salads: [ // САЛАТЫ
-        { title:'Салат с хрустящим баклажаном, томатом и страчателлой', price:'580 ₽', img:DISH_IMG,
-          desc:'Лёгкий салат со сладкими томатами, обжаренным до хруста баклажаном и холодной страчателлой. Баланс свежести и сливочности.' },
-        { title:'Зелёный салат с авокадо, брокколи и бобами эдамаме', price:'640 ₽', img:DISH_IMG,
-          desc:'Хрустящие листья, тёплая брокколи, спелый авокадо и эдамаме под лимонной заправкой. Много зелени и энергии.' },
-        { title:'Салат с кальмаром, картофелем и миксом салата', price:'650 ₽', img:DISH_IMG,
-          desc:'Нежный кальмар, молодой картофель, свежие листья и травяное масло. Лёгко, ароматно, морским акцентом.' },
-        { title:'Салат с цыплёнком, салатом романо и томатом конфи', price:'650 ₽', img:DISH_IMG,
-          desc:'Сочный куриный гриль, романо, томаты конфи и пармезан. Комфортная классика на каждый день.' },
-        { title:'Салат с ростбифом, томатным песто и маринованным томатом', price:'690 ₽', img:DISH_IMG,
-          desc:'Тёплый ростбиф, яркий томатный песто и пряные маринованные томаты. Сытный салат с характером.' },
-        { title:'Салат с креветкой, пюре из кабачка и соусом голландез', price:'740 ₽', img:DISH_IMG,
-          desc:'Сладкие креветки, нежное кабачковое пюре и тёплый голландез. Текстуры, которые любят друг друга.' },
-        { title:'Салат с лососем, сыром шропшир и морковным майо', price:'790 ₽', img:DISH_IMG,
-          desc:'Лосось, пикантный сыр шропшир и воздушный морковный майонез. Неожиданное, но очень гармоничное сочетание.' },
+      salads:[
+        { title:'Салат с баклажаном', price:'580 ₽', img:DISH_IMG, desc:'Томаты, баклажан, страчателла.' },
+        { title:'Зелёный с авокадо', price:'640 ₽', img:DISH_IMG, desc:'Брокколи, эдамаме, лимон.' },
+        { title:'С кальмаром', price:'650 ₽', img:DISH_IMG, desc:'Молодой картофель.' },
+        { title:'С цыплёнком', price:'650 ₽', img:DISH_IMG, desc:'Романо и томаты конфи.' },
+        { title:'С ростбифом', price:'690 ₽', img:DISH_IMG, desc:'Томатный песто.' },
+        { title:'С креветкой', price:'740 ₽', img:DISH_IMG, desc:'Соус голландез.' },
+        { title:'С лососем', price:'790 ₽', img:DISH_IMG, desc:'Сыр шропшир.' },
       ],
-
-      soups: [ // СУПЫ
-        { title:'Куриный бульон с равиоли с курицей', price:'450 ₽', img:DISH_IMG,
-          desc:'Прозрачный наваристый бульон с домашними равиоли. Уютная классика, когда хочется тепла.' },
-        { title:'Пряный тыквенный суп с креветкой и фенхелем', price:'590 ₽', img:DISH_IMG,
-          desc:'Кремовая тыква, аромат фенхеля и лёгкая остринка. Сверху — тёплая креветка и капля оливкового масла.' },
-        { title:'Минестроне с лососем и сезонными овощами', price:'650 ₽', img:DISH_IMG,
-          desc:'Итальянский овощной суп с кусочками лосося. Свежо, сытно и очень ярко по вкусу.' },
+      soups:[
+        { title:'Куриный бульон', price:'450 ₽', img:DISH_IMG, desc:'Бульон и равиоли.' },
+        { title:'Тыквенный с креветкой', price:'590 ₽', img:DISH_IMG, desc:'Фенхель и перчик.' },
+        { title:'Минестроне с лососем', price:'650 ₽', img:DISH_IMG, desc:'Сезонные овощи.' },
       ],
-
-      pasta: [ // ПАСТА
-        { title:'Тортеллини с уткой в соусе демиглас', price:'640 ₽', img:DISH_IMG,
-          desc:'Ручные тортеллини с сочной уткой и густым демигласом. Глубокий, бархатный вкус в каждом кусочке.' },
-        { title:'Равиоли со шпинатом, рикоттой и кедровым орехом', price:'490 ₽', img:DISH_IMG,
-          desc:'Классическая зелёная начинка и сливочная рикотта в тонком тесте. Сверху — масло шалфея и кедровые орешки.' },
-        { title:'Равиоли с двумя видами рыбы', price:'540 ₽', img:DISH_IMG,
-          desc:'Деликатная начинка из белой рыбы и лосося, лёгкий соус с цитрусом. Чисто и утончённо.' },
-        { title:'Паста с чёрным перцем и сыром качокавалло', price:'540 ₽', img:DISH_IMG,
-          desc:'Минималистичная cacio e pepe на качокавалло — перец, сливочность сыра и идеальная текстура пасты.' },
-        { title:'Паста с вонголе и петрушкой', price:'690 ₽', img:DISH_IMG,
-          desc:'Мидии-вонголе, белое вино, чеснок и петрушка. Солоноватая морская классика.' },
-        { title:'Паста с креветкой и песто', price:'740 ₽', img:DISH_IMG,
-          desc:'Сладкие креветки и яркий песто из базилика и кедровых орешков. Аромат лета на тарелке.' },
-        { title:'Паста с томлёной говядиной', price:'740 ₽', img:DISH_IMG,
-          desc:'Долго томлёная говядина распадается на волокна и обнимает пасту густым соусом. Очень уютно.' },
-        { title:'Паста из трёх видов мяса', price:'740 ₽', img:DISH_IMG,
-          desc:'Сильный мясной соус на смеси говядины, телятины и свинины, чуть вина и трав. Сытный и насыщенный выбор.' },
+      pasta:[
+        { title:'Тортеллини с уткой', price:'640 ₽', img:DISH_IMG, desc:'Демиглас.' },
+        { title:'Равиоли со шпинатом', price:'490 ₽', img:DISH_IMG, desc:'Рикотта и кедр.' },
+        { title:'Рыбные равиоли', price:'540 ₽', img:DISH_IMG, desc:'Два вида рыбы.' },
+        { title:'Качокавалло и перец', price:'540 ₽', img:DISH_IMG, desc:'Cacio e pepe.' },
+        { title:'Вонголе', price:'690 ₽', img:DISH_IMG, desc:'Белое вино и чеснок.' },
+        { title:'Креветка и песто', price:'740 ₽', img:DISH_IMG, desc:'Базилик.' },
+        { title:'Томлёная говядина', price:'740 ₽', img:DISH_IMG, desc:'Густой соус.' },
+        { title:'Паста из трёх мяс', price:'740 ₽', img:DISH_IMG, desc:'Говядина, телятина, свинина.' },
       ],
-
-      hot: [ // ГОРЯЧЕЕ
-        { title:'Судак с пастой птитим в соусе бер блан', price:'890 ₽', img:DISH_IMG,
-          desc:'Нежное филе судака с хрустящей кожей, сливочный птитим и классический beurre blanc. Тонкий, благородный вкус.' },
-        { title:'Дорадо с томатами черри и оливками каламата', price:'940 ₽', img:DISH_IMG,
-          desc:'Запечённая дорада, сладкие черри и маслины каламата под травяным маслом. Средиземноморское настроение.' },
-        { title:'Лосось с полентой и зелёными овощами в соусе из печёных яблок', price:'1390 ₽', img:DISH_IMG,
-          desc:'Сочный лосось, кремовая полента и лёгкий яблочный соус с кисло-сладким балансом. Современно и нежно.' },
-        { title:'Куриное филе с сырным картофельным пюре и салатом романо', price:'690 ₽', img:DISH_IMG,
-          desc:'Румяное филе, бархатное пюре с сыром и свежий салат. Комфортное блюдо в лучшем смысле.' },
-        { title:'Ризотто с уткой и морковным соусом', price:'740 ₽', img:DISH_IMG,
-          desc:'Аль денте рис, томлёная утка и сладковатый морковный соус. Согревающая комбинация.' },
-        { title:'Ризотто с креветкой и страчателлой в соусе биск', price:'790 ₽', img:DISH_IMG,
-          desc:'Глубокий ракообразный биск, нежные креветки и холодная страчателла — кремовый контраст.' },
-        { title:'Ньокки с белыми грибами и страчателлой', price:'890 ₽', img:DISH_IMG,
-          desc:'Домашние ньокки, жареные белые грибы и сливочная страчателла. Плотный, лесной аромат.' },
-        { title:'Ньокки с утиной ножкой конфи', price:'990 ₽', img:DISH_IMG,
-          desc:'Рассыпчатые ньокки и разрушающееся мясо конфи под соусом из собственных соков. Очень сытно.' },
-        { title:'Бифштекс с ванильным перечным соусом, маслом Кафе-де-Пари и гарниром', price:'990 ₽', img:DISH_IMG,
-          desc:'Сочный бифштекс, ванильно-перечный соус и ароматное масло Café de Paris. Гарнир на выбор: бейби-картофель или брокколи.' },
-        { title:'Стейк с картофельным гратеном', price:'1120 ₽', img:DISH_IMG,
-          desc:'Стейк средней прожарки и сливочный гратен из тонких ломтиков картофеля. Классическая пара.' },
-        { title:'Говяжья щека с трюфельным пюре', price:'1190 ₽', img:DISH_IMG,
-          desc:'Долго томлёные щёки до абсолютной мягкости. Подаём на бархатном трюфельном пюре — концентрированный, богатый вкус.' },
-        { title:'Стейк из белокочанной капусты в соусе бер блан', price:'490 ₽', img:DISH_IMG,
-          desc:'Толстый «стейк» из капусты, запечённый до карамели, под сливочным beurre blanc. Вегетарианская опция с характером.' },
+      hot:[
+        { title:'Судак с птитимом', price:'890 ₽', img:DISH_IMG, desc:'Beurre blanc.' },
+        { title:'Дорадо с черри', price:'940 ₽', img:DISH_IMG, desc:'Каламата.' },
+        { title:'Лосось с полентой', price:'1390 ₽', img:DISH_IMG, desc:'Соус из печёных яблок.' },
+        { title:'Куриное филе', price:'690 ₽', img:DISH_IMG, desc:'Сырное пюре.' },
+        { title:'Ризотто с уткой', price:'740 ₽', img:DISH_IMG, desc:'Морковный соус.' },
+        { title:'Ризотто с креветкой', price:'790 ₽', img:DISH_IMG, desc:'Биск и страчателла.' },
+        { title:'Ньокки с грибами', price:'890 ₽', img:DISH_IMG, desc:'Страчателла.' },
+        { title:'Ньокки с конфи', price:'990 ₽', img:DISH_IMG, desc:'Утиная ножка.' },
+        { title:'Бифштекс', price:'990 ₽', img:DISH_IMG, desc:'Café de Paris, гарнир.' },
+        { title:'Стейк и гратен', price:'1120 ₽', img:DISH_IMG, desc:'Сливочный гратен.' },
+        { title:'Говяжья щека', price:'1190 ₽', img:DISH_IMG, desc:'Трюфельное пюре.' },
+        { title:'Стейк из капусты', price:'490 ₽', img:DISH_IMG, desc:'Beurre blanc.' },
       ],
-
-      desserts: [ // ДЕСЕРТЫ
-        { title:'Мороженое из брезаолы с миндальным крамблом и муссом из инжира', price:'540 ₽', img:DISH_IMG,
-          desc:'Необычное сочетание: нежное мороженое с солоноватой ноткой, миндальный крамбл для хруста и шёлковый инжирный мусс.' },
-        { title:'Брауни с томлёной грушей и мисо-карамелью', price:'590 ₽', img:DISH_IMG,
-          desc:'Плотный шоколадный брауни, тёплая груша и карамель с лёгкой умами-ноткой мисо. Сладко, глубоко, современно.' },
-        { title:'Неаполитанская ром-баба с сорбетом, ягодами и кремом шантильи', price:'590 ₽', img:DISH_IMG,
-          desc:'Воздушная ром-баба, ягодный сорбет и нежный крем шантильи из сыра — праздничный финал трапезы.' },
+      desserts:[
+        { title:'Мороженое с крамблом', price:'540 ₽', img:DISH_IMG, desc:'Миндальный хруст.' },
+        { title:'Брауни с грушей', price:'590 ₽', img:DISH_IMG, desc:'Мисо-карамель.' },
+        { title:'Ром-баба', price:'590 ₽', img:DISH_IMG, desc:'Сорбет и крем шантильи.' },
       ],
     };
   </script>
 
   <div id="page-root">
-    <!-- Header -->
     <header class="header">
       <div class="container nav">
         <a class="logo" href="#top" aria-label="Ember Café — на главную">
           <span class="logo-text"><span class="logo-ember">ember</span><span class="logo-cafe">café</span></span>
         </a>
-
         <nav class="links" id="main-nav" aria-label="Основная навигация">
-          <a class="navlink" href="breakfasts.html">Завтраки</a>
+          <a class="navlink" href="index.html">Завтраки</a>
           <a class="navlink is-active" href="mainfood.html" aria-current="page">Еда</a>
           <a class="navlink" href="drinks.html">Напитки</a>
           <a class="navlink" href="wine.html">Вино</a>
         </nav>
-
         <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-controls="main-nav" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
       </div>
     </header>
 
-    <!-- Hero -->
     <section class="hero" id="top">
-      <div class="hero-media" role="img" aria-label="Ассорти блюд основного меню">
-        <div class="hero-overlay"></div>
-        <div class="hero-title">
-          <h1>Основное меню <span class="hero-ember">Ember</span><span class="hero-cafe">café</span></h1>
-          <p>Мы используем сыры из местной сыроварни Fromagelle, фермерские яйца и итальянскую муку Le&nbsp;5&nbsp;Stagioni. Меню делится на закуски, салаты, пасту, горячее и десерты — выбирайте по настроению и делитесь блюдами «в стол».</p>
+      <div class="hero-shell" id="hero-shell">
+        <div class="hero-stack" id="hero-stack" role="button" aria-expanded="false" tabindex="0">
+          <div class="hero-col"><img src="photos/colum1.jpg" alt="EmberCafe — фото 1" loading="eager"></div>
+          <div class="hero-col"><img src="photos/colum2.jpg" alt="EmberCafe — фото 2" loading="lazy"></div>
+          <div class="hero-col"><img src="photos/colum3.jpg" alt="EmberCafe — фото 3" loading="lazy"></div>
+          <div class="hero-col"><img src="photos/colum4.jpg" alt="EmberCafe — фото 4" loading="lazy"></div>
+          <div class="hero-col"><img src="photos/colum5.jpg" alt="EmberCafe — фото 5" loading="lazy"></div>
+        </div>
+
+        <div class="hero-caption">
+          <h1><span class="brand">EmberCafe</span> <span class="caption-what">Основное</span></h1>
+          <p>Сыры Fromagelle, фермерские яйца и мука Le&nbsp;5&nbsp;Stagioni. Делитесь блюдами «в стол» или собирайте полноценный ужин.</p>
         </div>
       </div>
     </section>
 
-    <!-- Tabs + Slider -->
     <section class="menu-section">
       <div class="container">
-     <div class="menu-header">
-  <h2 class="menu-title">Основное меню</h2>
-  <div class="menu-tabs" role="tablist" aria-label="Категории меню">
+        <div class="menu-header">
+          <h2 class="menu-title">Основное меню</h2>
+          <div class="menu-tabs" role="tablist" aria-label="Категории меню">
             <button class="tab active" id="tab-table"     type="button" aria-selected="true">Закуски в стол</button>
             <button class="tab"         id="tab-starters"  type="button" aria-selected="false">Закуски</button>
             <button class="tab"         id="tab-bread"     type="button" aria-selected="false">На нашем хлебе</button>
@@ -198,12 +147,12 @@
             <button class="tab"         id="tab-soups"     type="button" aria-selected="false">Супы</button>
             <button class="tab"         id="tab-pasta"     type="button" aria-selected="false">Паста</button>
             <button class="tab"         id="tab-hot"       type="button" aria-selected="false">Горячее</button>
-          <button class="tab"         id="tab-desserts"  type="button" aria-selected="false">Десерты</button>
-         </div>
+            <button class="tab"         id="tab-desserts"  type="button" aria-selected="false">Десерты</button>
+          </div>
         </div>
       </div>
 
-      <div class="slider" id="menu-slider" aria-roledescription="carousel" aria-label="Слайдер блюд">
+      <div class="slider" id="menu-slider" aria-roledescription="carousel" aria-label="Слайдер блюд — Основное меню">
         <button class="ghost-arrow left" id="prevDish" type="button" aria-label="Предыдущее блюдо">‹</button>
         <button class="ghost-arrow right" id="nextDish" type="button" aria-label="Следующее блюдо">›</button>
         <div class="slides-wrapper" id="slides-wrapper"></div>
@@ -211,11 +160,10 @@
       </div>
     </section>
 
-    <!-- Info (оставим общий блок) -->
     <section class="section">
       <div class="container info">
-        <div class="note"><strong>Продукты</strong><br>Fromagelle, фермерские хозяйства и мука Le 5 Stagioni — мы бережно относимся к ингредиентам.</div>
-        <div class="note"><strong>Формат</strong><br>Блюда удобно делить «в стол» — попросите дополнительные приборы, если нужно.</div>
+        <div class="note"><strong>Продукты</strong><br>Fromagelle, фермерские хозяйства и мука Le 5 Stagioni.</div>
+        <div class="note"><strong>Формат</strong><br>Блюда удобно делить «в стол» — подскажите, если нужны приборы.</div>
       </div>
     </section>
   </div>
@@ -232,8 +180,6 @@
     </div>
   </div>
 
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script defer src="script.js"></script>
 </body>
 </html>
